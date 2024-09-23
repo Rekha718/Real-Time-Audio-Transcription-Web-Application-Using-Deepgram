@@ -5,7 +5,6 @@ const Microphone = ({ onStopRecording }) => {
   const [mediaRecorder, setMediaRecorder] = useState(null);
 
   useEffect(() => {
-    // Setup MediaRecorder when the component mounts
     const getMicrophoneAccess = async () => {
       try {
         const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
@@ -30,7 +29,7 @@ const Microphone = ({ onStopRecording }) => {
 
       mediaRecorder.onstop = () => {
         const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
-        onStopRecording(audioBlob); // Pass audioBlob to parent
+        onStopRecording(audioBlob);
       };
     }
   };
