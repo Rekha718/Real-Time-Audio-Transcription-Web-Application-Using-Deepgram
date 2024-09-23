@@ -15,7 +15,6 @@ const App = () => {
       const newTranscription = data.results.channels[0].alternatives[0].transcript;
       setTranscription(newTranscription);
 
-      // Update local storage with new transcription
       const updatedTranscriptions = [...pastTranscriptions, newTranscription];
       setPastTranscriptions(updatedTranscriptions);
       localStorage.setItem('transcriptions', JSON.stringify(updatedTranscriptions));
@@ -45,7 +44,6 @@ const App = () => {
         </div>
       )}
 
-      {/* Past Transcriptions */}
       <div className="past-transcriptions mt-6">
         <h2 className="text-xl font-semibold">Past Transcriptions:</h2>
         <ul className="list-disc pl-4">
